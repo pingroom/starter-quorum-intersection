@@ -1,0 +1,42 @@
+{
+  "auditId": "catalog-replicas",
+  "title": "Catalog replication audit",
+  "context": "Use the installed profile from the replication runbook, section 4.",
+  "replicas": [
+    {
+      "id": "east",
+      "weight": 2
+    },
+    {
+      "id": "north",
+      "weight": 2
+    },
+    {
+      "id": "west",
+      "weight": 2
+    }
+  ],
+  "profiles": [
+    {
+      "id": "overlap",
+      "label": "Weighted overlap",
+      "reference": "Runbook section 4A",
+      "readThreshold": 3,
+      "writeThreshold": 3
+    },
+    {
+      "id": "weak",
+      "label": "Single replica",
+      "reference": "Runbook section 4B",
+      "readThreshold": 2,
+      "writeThreshold": 2
+    },
+    {
+      "id": "unreachable",
+      "label": "Unavailable write",
+      "reference": "Runbook section 4C",
+      "readThreshold": 3,
+      "writeThreshold": 7
+    }
+  ]
+}
